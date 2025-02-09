@@ -1,22 +1,18 @@
 const express = require("express");
-const axios = require("axios");
-
 const app = express();
+const port = process.env.PORT || 3000;
+
 app.use(express.json());
 
-// Example API call endpoint
-app.post("/api/make-call", async (req, res) => {
-  const { targetUrl, payload } = req.body;
-
-  try {
-    const response = await axios.post(targetUrl, payload);
-    res.status(200).json(response.data);
-  } catch (error) {
-    console.error("API Call Error:", error.message);
-    res.status(500).send("API Call Failed");
-  }
+app.get("/", (req, res) => {
+  res.send("Welcome to the API!");
 });
 
-app.listen(3000, () => {
-  console.log("API server running on port 3000");
+app.post("/api/data", (req, res) => {
+  const data = req.body;
+  res.json({ message: "Data received", data });
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });

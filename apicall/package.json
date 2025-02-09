@@ -1,13 +1,14 @@
 {
-  "name": "API-CALLServerS",
+  "name": "api-call-server",
   "version": "1.0.0",
+  "description": "A simple API server for Render deployment",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
+  "author": "Your Name",
+  "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1",
-    "axios": "^0.24.0"
+    "express": "^4.17.1"
   }
 }
-
